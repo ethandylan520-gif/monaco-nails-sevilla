@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monaco Nails Studio · Uñas en Sevilla</title>
+<meta name="description" content="Monaco Nails Studio, by Alba Álvarez. Home studio de uñas en Sevilla — manicura semipermanente, acrigel, pedicura spa y depilación con hilo. Solo con cita previa.">
+<meta name="theme-color" content="#F5EFE8">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23A9825A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' fill='%23F5EFE8' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Poppins:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --bg:#F5EFE8;
+  --bg-2:#EBE1D3;
+  --card:#FFFFFF;
+  --ink:#211C18;
+  --ink-2:#8A7D6E;
+  --line:#E0D5C6;
+  --line-2:#CDBEA8;
+  --accent:#A9825A;
+  --accent-2:#8A6842;
+  --on-accent:#FFFFFF;
+
+  --f-display:"Cormorant Garamond",Georgia,serif;
+  --f-body:"Poppins","Segoe UI",system-ui,sans-serif;
+  --wrap:1080px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--f-body);font-size:16.5px;line-height:1.65;
+  -webkit-font-smoothing:antialiased
+}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.05;margin:0}
+p{margin:0}
+a{color:inherit}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.15rem,4vw,2rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--on-accent);padding:.7rem 1.1rem;z-index:200}
+.skip:focus{left:.6rem;top:.6rem}
+.eyebrow{
+  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 .7rem
+}
+.lede{color:var(--ink-2);max-width:52ch;font-size:1.05rem}
+
+/* Botones */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  font-family:var(--f-body);font-weight:600;font-size:.92rem;
+  padding:.85rem 1.7rem;border-radius:99px;text-decoration:none;border:1.5px solid transparent;
+  transition:background-color .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease);
+  cursor:pointer
+}
+.btn svg{width:1.05em;height:1.05em;flex:none}
+.btn-solid{background:var(--accent);color:var(--on-accent)}
+.btn-solid:hover{background:var(--accent-2)}
+.btn-line{border-color:var(--line-2);color:var(--ink)}
+.btn-line:hover{border-color:var(--accent);color:var(--accent)}
+@media (pointer:coarse){.btn{min-height:44px}}
+
+/* Cabecera */
+.head{
+  position:sticky;top:0;z-index:100;background:rgba(245,239,232,.9);
+  backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--line)
+}
+.head .in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:76px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
+.brand .mark{
+  width:2.3rem;height:2.3rem;border-radius:50%;background:var(--accent);color:var(--on-accent);
+  display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--f-display);font-size:1.2rem
+}
+.brand b{font-family:var(--f-display);font-size:1.5rem;letter-spacing:.02em;font-weight:600}
+.nav{display:flex;align-items:center;gap:1.8rem}
+.nav a{font-size:.88rem;text-decoration:none;color:var(--ink-2);transition:color .2s var(--ease)}
+.nav a:hover{color:var(--accent)}
+.nav .btn-solid,.nav .btn-solid:hover{color:var(--on-accent)}
+@media (max-width:760px){.nav .hide-sm{display:none}}
+
+/* Héroe */
+.hero{padding:clamp(3rem,7vw,5rem) 0 clamp(2.5rem,6vw,4rem)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.6rem,5.6vw,3.8rem);max-width:14ch;font-style:italic;font-weight:600}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin-top:1.2rem;font-size:1.1rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.8rem}
+.hero-img{
+  position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;
+  box-shadow:0 24px 48px -20px rgba(33,28,24,.25)
+}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:820px){.hero-img{aspect-ratio:16/10;order:-1}}
+.trust{
+  display:flex;flex-wrap:wrap;gap:2rem;margin-top:2.4rem;padding-top:1.6rem;
+  border-top:1px solid var(--line)
+}
+.trust-item b{font-family:var(--f-display);font-size:1.6rem;display:block;color:var(--accent)}
+.trust-item span{font-size:.8rem;color:var(--ink-2)}
+
+/* Espacio */
+.space-banner{
+  border-radius:16px;overflow:hidden;aspect-ratio:21/9;position:relative;
+  box-shadow:0 20px 40px -22px rgba(33,28,24,.22)
+}
+.space-banner img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:640px){.space-banner{aspect-ratio:4/3}}
+
+/* Secciones */
+.sec{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{max-width:52ch;margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-head h2{font-size:clamp(2rem,4vw,2.8rem);font-style:italic}
+.sec-head p{margin-top:.9rem;color:var(--ink-2)}
+
+/* Destacados */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media (max-width:820px){.feat-grid{grid-template-columns:1fr}}
+.feat-card{
+  background:var(--card);padding:1.8rem;display:block;text-decoration:none;color:inherit;
+  transition:background-color .2s var(--ease)
+}
+.feat-card:hover,.feat-card:focus-visible{background:var(--bg-2)}
+.feat-card .tag{font-size:.78rem;color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.feat-card .num{font-family:var(--f-display);font-size:2.1rem;color:var(--accent);letter-spacing:-.01em;display:block;margin:.5rem 0}
+.feat-card p{color:var(--ink-2);font-size:.9rem}
+.feat-card .feat-cta{
+  display:flex;align-items:center;gap:.35rem;margin-top:1rem;font-size:.8rem;font-weight:600;
+  color:var(--accent);opacity:.75;transition:opacity .2s var(--ease),transform .2s var(--ease)
+}
+.feat-card .feat-cta svg{width:.95em;height:.95em;transition:transform .2s var(--ease)}
+.feat-card:hover .feat-cta,.feat-card:focus-visible .feat-cta{opacity:1}
+.feat-card:hover .feat-cta svg,.feat-card:focus-visible .feat-cta svg{transform:translateX(3px)}
+
+/* Categorías (acordeón) */
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;align-items:start}
+@media (max-width:640px){.cat-grid{grid-template-columns:1fr}}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease)
+}
+.cat-card[open]{border-color:var(--accent);box-shadow:0 16px 28px -18px rgba(33,28,24,.22)}
+.cat-summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;padding:1.3rem 1.5rem;transition:background-color .2s var(--ease);
+  -webkit-tap-highlight-color:transparent
+}
+.cat-summary::-webkit-details-marker{display:none}
+.cat-summary:hover,.cat-summary:focus-visible{background:var(--bg-2)}
+.cat-summary b{font-size:1.05rem;font-family:var(--f-body);font-weight:600}
+.cat-summary .cat-meta{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--ink-2);white-space:nowrap}
+.cat-summary .cat-go{color:var(--accent);display:inline-flex;transition:transform .2s var(--ease)}
+.cat-card[open] .cat-go{transform:rotate(180deg)}
+.cat-body{padding:.2rem 1.5rem 1.1rem}
+.svc-row{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.7rem 0;border-top:1px solid var(--line);text-decoration:none;color:inherit;
+  transition:color .2s var(--ease)
+}
+.svc-row:hover,.svc-row:focus-visible{color:var(--accent)}
+.svc-name{font-size:.9rem;font-weight:500}
+.svc-price{font-size:.8rem;color:var(--ink-2);white-space:nowrap;flex:none;transition:color .2s var(--ease)}
+.svc-row:hover .svc-price,.svc-row:focus-visible .svc-price{color:var(--accent)}
+
+/* Alba */
+.pro-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:2rem;display:flex;align-items:center;gap:1.8rem;max-width:640px
+}
+@media (max-width:560px){.pro-card{flex-direction:column;text-align:center}}
+.pro-card .av{
+  width:5rem;height:5rem;border-radius:50%;background:var(--bg-2);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  font-family:var(--f-display);font-size:2.2rem;border:1px solid var(--line)
+}
+.pro-card h3{font-size:1.5rem;font-style:italic}
+.pro-card p{color:var(--ink-2);font-size:.92rem;margin-top:.5rem}
+.pro-note{
+  margin-top:1.6rem;padding:1.1rem 1.4rem;background:var(--bg-2);border-radius:12px;
+  font-size:.86rem;color:var(--ink-2);max-width:640px;display:flex;gap:.6rem;align-items:flex-start
+}
+.pro-note svg{flex:none;width:1.2rem;height:1.2rem;color:var(--accent);margin-top:.1rem}
+
+/* Horario */
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
+@media (max-width:760px){.hours-grid{grid-template-columns:1fr}}
+table.hours{width:100%;border-collapse:collapse;font-size:.96rem}
+table.hours td{padding:.7rem 0;border-bottom:1px solid var(--line)}
+table.hours tr:last-child td{border-bottom:none}
+table.hours td:first-child{font-weight:600;text-transform:capitalize}
+table.hours td:last-child{text-align:right;color:var(--ink-2)}
+table.hours tr.closed td:last-child{color:var(--accent)}
+.map-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:1.8rem;display:flex;flex-direction:column;gap:1.2rem
+}
+.map-card h3{font-size:1.25rem;font-style:italic}
+.map-card address{font-style:normal;color:var(--ink-2);line-height:1.6}
+.map-frame{
+  position:relative;width:100%;aspect-ratio:4/3;border-radius:10px;
+  border:1px solid var(--line);background:var(--bg-2);overflow:hidden
+}
+.map-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.map-pin{
+  position:absolute;left:38%;top:22%;transform:translate(-50%,-100%);
+  filter:drop-shadow(0 2px 4px rgba(33,28,24,.35))
+}
+
+/* Contacto */
+.cta{background:var(--accent);color:var(--on-accent)}
+.cta .eyebrow{color:rgba(255,255,255,.75)}
+.cta .sec-head p{color:rgba(255,255,255,.88)}
+.cta-box{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  border-radius:16px;padding:clamp(1.5rem,3vw,2.2rem)
+}
+.cta-box p{max-width:36ch;color:rgba(255,255,255,.92)}
+.cta .btn-solid{background:#FFFFFF;color:var(--accent)}
+.cta .btn-solid:hover{background:var(--bg-2)}
+.phone-copy{font-family:var(--f-display);font-size:1.5rem;font-weight:600;color:#FFFFFF;user-select:all}
+
+/* Pie */
+.foot{padding:2rem 0;font-size:.85rem;color:var(--ink-2);border-top:1px solid var(--line)}
+.foot .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="head">
+  <div class="wrap in">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true">M</span>
+      <b>Monaco Nails Studio</b>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a class="hide-sm" href="#servicios">Servicios</a>
+      <a class="hide-sm" href="#alba">Alba</a>
+      <a class="hide-sm" href="#horario">Horario</a>
+      <a class="btn btn-solid js-whatsapp" href="#" target="_blank" rel="noopener">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<div id="top"></div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Home studio de uñas en Sevilla</p>
+      <h1>Uñas cuidadas, <em>al detalle.</em></h1>
+      <p class="lede">Manicura semipermanente, acrigel y pedicura spa con Alba Álvarez. Un espacio íntimo, solo con cita previa, pensado para cuidarte sin prisas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid js-whatsapp" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.77.46 3.45 1.35 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2m0 18.06a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.14 8.14 0 0 1-1.26-4.35c0-4.5 3.67-8.17 8.18-8.17a8.1 8.1 0 0 1 8.17 8.18c0 4.51-3.67 8.18-8.1 8.18m4.48-6.13c-.24-.12-1.44-.71-1.67-.79s-.39-.12-.55.12-.63.79-.78.95-.29.18-.53.06-1.02-.38-1.95-1.21c-.72-.64-1.21-1.44-1.35-1.68s-.02-.37.11-.49c.11-.11.24-.29.36-.43s.16-.24.24-.4.04-.31-.02-.43-.55-1.32-.75-1.81-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31s-.86.84-.86 2.04.88 2.36 1 2.52 1.73 2.64 4.2 3.7c.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.44-.59 1.64-1.16s.2-1.06.14-1.16-.22-.16-.46-.28"/></svg>
+          Escríbeme por WhatsApp
+        </a>
+        <a class="btn btn-line" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener">Reservar por Booksy</a>
+      </div>
+      <div class="trust">
+        <div class="trust-item"><b>5.0</b><span>22 reseñas verificadas</span></div>
+        <div class="trust-item"><b>Alba</b><span>Manicura y acrigel</span></div>
+        <div class="trust-item"><b>Sevilla</b><span>Solo con cita previa</span></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="hero-nails.jpg" alt="Manicura semipermanente realizada en Monaco Nails Studio" loading="eager">
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="space-banner">
+      <img src="gallery.jpg" alt="Colores de manicura semipermanente disponibles en Monaco Nails Studio" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Servicios</p>
+      <h2>Lo más pedido</h2>
+      <p>Además de esto, hay más servicios de manicura, pedicura, hilo y laminado en las categorías de abajo.</p>
+    </div>
+    <div class="feat-grid">
+      <a class="feat-card" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener">
+        <span class="tag">Semipermanente con refuerzo</span>
+        <span class="num">22€</span>
+        <p>Base de proteínas. 1h. Pago solo en efectivo.</p>
+        <span class="feat-cta">Reservar en Booksy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="feat-card" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener">
+        <span class="tag">Semipermanente con refuerzo de gel</span>
+        <span class="num">24€</span>
+        <p>Ideal para uñas quebradizas o largas. 1h 10min.</p>
+        <span class="feat-cta">Reservar en Booksy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="feat-card" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener">
+        <span class="tag">Relleno de acrigel</span>
+        <span class="num">28€+</span>
+        <p>No se hacen rellenos de otros centros. 1h.</p>
+        <span class="feat-cta">Reservar en Booksy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+
+    <div class="cat-grid" style="margin-top:2rem">
+      <details class="cat-card">
+        <summary class="cat-summary"><b>Manicuras</b><span class="cat-meta">14 servicios <svg class="cat-go" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+        <div class="cat-body">
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Manicura semipermanente</span><span class="svc-price">20€ · 50min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Refuerzo acrigel en uña natural</span><span class="svc-price">26€ · 1h</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Relleno de acrigel</span><span class="svc-price">28€+ · 1h</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Semipermanente con refuerzo</span><span class="svc-price">22€ · 1h</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Relleno acrigel uñas largas</span><span class="svc-price">30€ · 1h 15min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Retirada semipermanente para otro servicio</span><span class="svc-price">5€ · 15min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Retirada acrílico para otro servicio</span><span class="svc-price">6€ · 20min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Semipermanente con refuerzo de gel</span><span class="svc-price">24€ · 1h 10min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Primera puesta acrigel hasta N2</span><span class="svc-price">30€ · 1h 30min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Primera puesta acrigel hasta N4</span><span class="svc-price">34€ · 1h 40min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Primera puesta acrigel extra largas</span><span class="svc-price">40€ · 2h</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Retirada esmalte permanente</span><span class="svc-price">10€ · 30min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Retirada de acrílico/gel</span><span class="svc-price">12€ · 40min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Manicura con esmalte clásico</span><span class="svc-price">14€ · 30min</span></a>
+        </div>
+      </details>
+      <details class="cat-card">
+        <summary class="cat-summary"><b>Pedicuras</b><span class="cat-meta">5 servicios <svg class="cat-go" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+        <div class="cat-body">
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Pedicura spa con esmalte permanente</span><span class="svc-price">30€ · 1h 15min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Esmalte permanente en pies</span><span class="svc-price">18€ · 45min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Pedicura spa sin esmalte</span><span class="svc-price">20€ · 45min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Pedicura spa con esmalte clásico</span><span class="svc-price">25€ · 1h</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Esmalte clásico en pies</span><span class="svc-price">15€ · 30min</span></a>
+        </div>
+      </details>
+      <details class="cat-card">
+        <summary class="cat-summary"><b>Depilación con hilo</b><span class="cat-meta">5 servicios <svg class="cat-go" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+        <div class="cat-body">
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Patillas con hilo</span><span class="svc-price">8€ · 20min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Labio superior con hilo</span><span class="svc-price">6€ · 15min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Cejas y labio superior con hilo</span><span class="svc-price">14€ · 20min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Labio y cejas con hilo</span><span class="svc-price">14€ · 20min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Cejas con hilo</span><span class="svc-price">10€ · 20min</span></a>
+        </div>
+      </details>
+      <details class="cat-card">
+        <summary class="cat-summary"><b>Laminado y lifting</b><span class="cat-meta">4 servicios <svg class="cat-go" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+        <div class="cat-body">
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Tinte de cejas</span><span class="svc-price">10€ · 30min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Lifting de pestañas con tinte</span><span class="svc-price">35€ · 1h 20min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Laminado de cejas con tinte</span><span class="svc-price">35€ · 1h 20min</span></a>
+          <a class="svc-row" href="https://booksy.com/es-es/186836_monaco-nails-studio_salon-de-unas_29971_sevilla" target="_blank" rel="noopener"><span class="svc-name">Laminado de cejas sin tinte</span><span class="svc-price">30€ · 1h</span></a>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="alba">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Tu especialista</p>
+      <h2>Quién te va a atender</h2>
+    </div>
+    <div class="pro-card">
+      <span class="av" aria-hidden="true">A</span>
+      <div>
+        <h3>Alba Álvarez</h3>
+        <p>Manicura semipermanente y acrigel. Las reseñas lo repiten una y otra vez: perfeccionista, puntual y cuida las uñas como si fueran suyas.</p>
+      </div>
+    </div>
+    <div class="pro-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span>Es un home studio: solo con cita previa, sin zona de espera. Nuevas clientas necesitan una consulta previa.</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="horario">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Horario</p>
+      <h2>Cuándo puedes venir</h2>
+    </div>
+    <div class="hours-grid">
+      <table class="hours">
+        <tbody>
+          <tr><td>Lunes</td><td>9:00 – 21:00</td></tr>
+          <tr><td>Martes</td><td>9:00 – 21:00</td></tr>
+          <tr><td>Miércoles</td><td>9:00 – 21:00</td></tr>
+          <tr><td>Jueves</td><td>9:00 – 21:00</td></tr>
+          <tr><td>Viernes</td><td>9:00 – 21:00</td></tr>
+          <tr class="closed"><td>Sábado</td><td>Cerrado</td></tr>
+          <tr class="closed"><td>Domingo</td><td>Cerrado</td></tr>
+        </tbody>
+      </table>
+      <div class="map-card">
+        <h3>Dónde estamos</h3>
+        <div class="map-frame">
+          <img src="map-location.jpg" alt="Mapa de la zona de Calle Ocho de Marzo, Sevilla, donde está Monaco Nails Studio" loading="lazy" width="700" height="480">
+          <svg class="map-pin" width="26" height="36" viewBox="0 0 26 36" aria-hidden="true">
+            <path d="M13 0C5.8 0 0 5.8 0 13c0 9.7 13 23 13 23s13-13.3 13-23C26 5.8 20.2 0 13 0z" fill="#A9825A"/>
+            <circle cx="13" cy="13" r="5" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <address>C. Ocho de Marzo, 14<br>41006, Sevilla</address>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Calle%20Ocho%20de%20Marzo%2014%2C%2041006%20Sevilla" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cta" id="contacto">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Reservar</p>
+      <h2>Pide tu cita por WhatsApp</h2>
+      <p>Cuéntanos qué te quieres hacer y te confirmamos hueco lo antes posible. Recuerda: pago solo en efectivo.</p>
+    </div>
+    <div class="cta-box">
+      <p class="phone-copy">633 04 39 32</p>
+      <a class="btn btn-solid js-whatsapp" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.77.46 3.45 1.35 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2m0 18.06a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.14 8.14 0 0 1-1.26-4.35c0-4.5 3.67-8.17 8.18-8.17a8.1 8.1 0 0 1 8.17 8.18c0 4.51-3.67 8.18-8.1 8.18m4.48-6.13c-.24-.12-1.44-.71-1.67-.79s-.39-.12-.55.12-.63.79-.78.95-.29.18-.53.06-1.02-.38-1.95-1.21c-.72-.64-1.21-1.44-1.35-1.68s-.02-.37.11-.49c.11-.11.24-.29.36-.43s.16-.24.24-.4.04-.31-.02-.43-.55-1.32-.75-1.81-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31s-.86.84-.86 2.04.88 2.36 1 2.52 1.73 2.64 4.2 3.7c.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.44-.59 1.64-1.16s.2-1.06.14-1.16-.22-.16-.46-.28"/></svg>
+        Abrir WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap in">
+    <span><b style="color:var(--ink)">Monaco Nails Studio</b> · by Alba Álvarez, Sevilla</span>
+    <span>C. Ocho de Marzo, 14 · 633 04 39 32</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var PHONE = "+34633043932";
+  var TEXT = "Hola! Quiero pedir cita en Monaco Nails Studio.";
+
+  var tel = PHONE.replace(/\s+/g, "");
+  var url = "https://wa.me/" + tel.replace("+", "") + "?text=" + encodeURIComponent(TEXT);
+  document.querySelectorAll(".js-whatsapp").forEach(function (a) { a.setAttribute("href", url); });
+})();
+</script>
+
+</body>
+</html>
